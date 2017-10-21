@@ -1,0 +1,2 @@
+class WebSurvey < ApplicationRecord
+end
