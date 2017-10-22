@@ -45,6 +45,7 @@ group :development do
   
   gem 'foreman', '~> 0.84.0'
   gem 'active_model_serializers'
+  gem 'friendly_id', '~> 5.1.0'
 end
 
 group :test do
