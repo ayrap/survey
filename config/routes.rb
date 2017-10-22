@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   scope 'api' do
     resources :users, only: :create
     resources :sessions, only: %w(create destroy)
+    resources :web_surveys, path: 'surveys'
   end
 end
