@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20171021120757) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "web_surveys_id"
+    t.integer  "web_survey_id"
     t.string   "title"
-    t.boolean  "is_default"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["web_surveys_id"], name: "index_questions_on_web_surveys_id", using: :btree
+    t.boolean  "is_custom",     default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["web_survey_id"], name: "index_questions_on_web_survey_id", using: :btree
   end
 
   create_table "respondents", force: :cascade do |t|
@@ -47,12 +47,12 @@ ActiveRecord::Schema.define(version: 20171021120757) do
   end
 
   create_table "responses", force: :cascade do |t|
-    t.integer  "respondents_id"
-    t.integer  "web_surveys_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["respondents_id"], name: "index_responses_on_respondents_id", using: :btree
-    t.index ["web_surveys_id"], name: "index_responses_on_web_surveys_id", using: :btree
+    t.integer  "respondent_id"
+    t.integer  "web_survey_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["respondent_id"], name: "index_responses_on_respondent_id", using: :btree
+    t.index ["web_survey_id"], name: "index_responses_on_web_survey_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
