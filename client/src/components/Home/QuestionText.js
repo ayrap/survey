@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 class QuestionText extends Component {
   constructor(props) {
     super(props);

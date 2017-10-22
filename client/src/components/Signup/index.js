@@ -36,8 +36,8 @@ class Signup extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Signup
+export default Signup;

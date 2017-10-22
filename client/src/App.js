@@ -6,6 +6,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
+import NewSurveyForm from './components/Home/NewSurveyForm';
 import Signup from './components/Signup';
 
 class App extends Component {
@@ -21,7 +22,7 @@ class App extends Component {
     this.setState({user});
     localStorage['session'] = localStorage.getItem('session') || user.access_token;
   }
-
+  
   isLoggedIn() {
     if (localStorage.getItem('session')) {
       return true;
@@ -36,18 +37,26 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path='/' render={() => (
-              this.isLoggedIn() ? (
-                <Home />
-              ) : (
-                <Redirect to="/login"/>
-              ))}/>
+            this.isLoggedIn() ? (
+              <Home />
+            ) : (
+              <Redirect to="/login"/>
+            ))}
+          />
+          <Route exact path='/surveys/new' render={() => (
+            this.isLoggedIn() ? (
+              <NewSurveyForm />
+            ) : (
+              <Redirect to="/login"/>
+            ))}
+          />
           <Route path='/login' render={() => (
             <Login loginUser={this.loginUser} />
           )}/>
           <Route path='/register' component={Signup}/>
         </Switch>
       </div>
-    )
+    );
   }
 }
 
