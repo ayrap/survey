@@ -19,7 +19,7 @@ class App extends Component {
 
   loginUser(user) {
     this.setState({user});
-    localStorage['session'] = user.access_token;
+    localStorage['session'] = localStorage.getItem('session') || user.access_token;
   }
 
   isLoggedIn() {

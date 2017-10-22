@@ -8,7 +8,7 @@ class WebSurveysController < ApiController
   end
 
   def create
-    web_survey = WebSurvey.new(obj_params)
+    web_survey = current_user.web_surveys.new(obj_params)
 
     if web_survey.save
       render json: WebSurveySerializer.new(web_survey).as_json

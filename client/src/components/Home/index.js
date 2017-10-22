@@ -85,7 +85,7 @@ class Home extends Component {
     axios.post('/api/surveys', { 
       web_survey: {
         title: this.refs.title.value, 
-        questions: questions 
+        questions_attributes: questions 
       }
     },
     {
