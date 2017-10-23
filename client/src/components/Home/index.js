@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import Header from '../Header';
 import SurveyList from './SurveyList';
 
 class Home extends Component {
@@ -28,8 +28,10 @@ class Home extends Component {
   }
 
   render() {
+    let { isLoggedIn } = this.props;
     return (
       <div>
+        <Header isLoggedIn={isLoggedIn} />
         <SurveyList surveys={this.state.surveys}/>
       </div>
     );

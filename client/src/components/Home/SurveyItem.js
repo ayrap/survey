@@ -29,7 +29,7 @@ class SurveyItem extends Component {
         {survey.responses.length > 0 ?
           survey.responses.map((response) => {
             return (
-              <tr className="bg-info">
+              <tr key={response.id} className="bg-info">
                 <td colSpan='3'>
                   <label>Name of Respondent: {response.respondent}</label>
                   {this.renderResponses(response.answers)}

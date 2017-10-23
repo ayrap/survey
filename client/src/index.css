@@ -8,6 +8,10 @@ body {
   margin-top: 100px;
 }
 
+.survey-form {
+  margin-top: 10px;
+}
+
 .questions .form-control {
   display: inline;
 }

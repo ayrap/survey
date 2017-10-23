@@ -103,7 +103,7 @@ class SurveyForm extends Component {
     let { isSubmitted } = this.state;
 
     return (
-      <div className="container">
+      <div className="container survey-form">
       <div className="row">
         { isSubmitted ?
           <div className="jumbotron">

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import axios from 'axios';
+import Header from '../Header';
 
 import QuestionText from './QuestionText';
 
@@ -100,33 +101,37 @@ class NewSurveyForm extends Component {
   }
 
   render() {
+    let { isLoggedIn } = this.props;
 
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-5">
-            <h2>Add Survey</h2>
-            <form onSubmit={this.handleSubmit} className="questions"> 
-              <div className="form-group">
-                <label>Title</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  ref="title"
-                />
-              </div>
-              <div className="form-group">
-                <label>Questions</label>
-                <ol>
-                  {this.getDefaultQuestions()}
-                  {this.renderQuestions()}
-                </ol>
-              </div>
-              <a className="btn btn-outline-primary btn-question" onClick={this.handleClick}>Add Another Question</a>
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-            </form> 
+      <div>
+        <Header isLoggedIn={isLoggedIn} />
+        <div className="container">
+          <div className="row">
+            <div className="col-md-5">
+              <h2>Add Survey</h2>
+              <form onSubmit={this.handleSubmit} className="questions"> 
+                <div className="form-group">
+                  <label>Title</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    ref="title"
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Questions</label>
+                  <ol>
+                    {this.getDefaultQuestions()}
+                    {this.renderQuestions()}
+                  </ol>
+                </div>
+                <a className="btn btn-outline-primary btn-question" onClick={this.handleClick}>Add Another Question</a>
+                <button type="submit" className="btn btn-primary">
+                  Submit
+                </button>
+              </form> 
+            </div>
           </div>
         </div>
       </div>

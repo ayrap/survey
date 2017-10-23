@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
 class Logout extends Component {
 
   constructor(props) {
@@ -7,6 +8,7 @@ class Logout extends Component {
 
   componentWillMount() {
     localStorage.removeItem('session');
+    this.props.history.push('/');
   }
   
   render() {
@@ -21,4 +23,4 @@ class Logout extends Component {
   }
 }
 
-export default Logout;
+export default withRouter(Logout);

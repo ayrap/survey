@@ -36,18 +36,17 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header isLoggedIn={this.isLoggedIn()} />
         <Switch>
           <Route exact path='/' render={() => (
             this.isLoggedIn() ? (
-              <Home />
+              <Home isLoggedIn={this.isLoggedIn} />
             ) : (
               <Redirect to="/login"/>
             ))}
           />
           <Route exact path='/surveys/new' render={() => (
             this.isLoggedIn() ? (
-              <NewSurveyForm />
+              <NewSurveyForm  isLoggedIn={this.isLoggedIn} />
             ) : (
               <Redirect to="/login"/>
             ))}
