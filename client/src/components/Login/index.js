@@ -8,6 +8,9 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      error: ''
+    };
   }
 
   handleSubmit(e) {
@@ -16,11 +19,24 @@ class Login extends Component {
       alert('Email and password required');
     } else {
       axios.post('/api/sessions', { user: { email: this.refs.email.value, password: this.refs.password.value } })
-           .then(({ data }) => {
-             this.props.loginUser(data);
-             this.props.history.push('/');
-           });
+      .then(response => { 
+        this.props.loginUser(response);
+        this.props.history.push('/');
+      })
+      .catch(error => {
+        this.setState({error: error.response.data.error});
+      });
     }
+  }
+
+  renderError(msg) {
+    return (
+      <div className='col-md-12'>
+        <div className="alert alert-danger" role="alert">
+          <strong>Error!</strong> <a className="alert-link">{msg}</a>
+        </div>
+      </div>
+    );
   }
   
   render() {
@@ -28,6 +44,7 @@ class Login extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-5">
+            { this.state.error && this.renderError(this.state.error) }
             <h2>Login</h2>
             <form onSubmit={this.handleSubmit}> 
               <div className="form-group">
