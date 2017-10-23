@@ -20,7 +20,7 @@ class Login extends Component {
     } else {
       axios.post('/api/sessions', { user: { email: this.refs.email.value, password: this.refs.password.value } })
       .then(response => { 
-        this.props.loginUser(response);
+        this.props.loginUser(response.data);
         this.props.history.push('/');
       })
       .catch(error => {
