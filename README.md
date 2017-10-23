@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+This application is a simple web based survey tool built using Ruby on Rails (API) and ReactJS (UI).
 
 * Ruby version
-
-* System dependencies
+2.4.0
 
 * Configuration
+bundle install
+cd client && npm install
 
-* Database creation
+* Deployment ()
+Development: `rake start` 
 
-* Database initialization
+* Screenshots
+### Login Screen
+![alt text](https://snag.gy/DPetC7.jpg "Login Screen")
 
-* How to run the test suite
+### Survey List
+![alt text](https://snag.gy/fniUM3.jpg "Survey List")
 
-* Services (job queues, cache servers, search engines, etc.)
+### Create Survey
+![alt text](https://snag.gy/E3WqMZ.jpg "Create Survey")
 
-* Deployment instructions
+### Answer Survey
+![alt text](https://snag.gy/kjSbGp.jpg "Answer Survey")
 
-* ...
+
+
