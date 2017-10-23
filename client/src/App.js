@@ -56,8 +56,8 @@ class App extends Component {
             <Login loginUser={this.loginUser} />
           )}/>
           <Route path='/logout' component={Logout}/>
-          <Route path='/register' component={Signup}/>
           <Route path='/surveys/:survey_link' component={SurveyForm}/>
+          <Redirect to="/" />
         </Switch>
       </div>
     );

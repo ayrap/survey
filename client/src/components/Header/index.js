@@ -30,13 +30,6 @@ class Header extends Component {
             }
             {!authenticated &&
               <li className="nav-item">
-                <Link to="/register" className="nav-link">
-                  SIGN UP
-                </Link>
-              </li>
-            }
-            {!authenticated &&
-              <li className="nav-item">
                 <Link to="/login" className="nav-link">
                   LOG IN
                 </Link>
