@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
 import NewSurveyForm from './components/Home/NewSurveyForm';
+import SurveyForm from './components/Home/SurveyForm';
 import Signup from './components/Signup';
 
 class App extends Component {
@@ -34,7 +35,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header isLoggedIn={this.isLoggedIn()} />
         <Switch>
           <Route exact path='/' render={() => (
             this.isLoggedIn() ? (
@@ -54,6 +55,7 @@ class App extends Component {
             <Login loginUser={this.loginUser} />
           )}/>
           <Route path='/register' component={Signup}/>
+          <Route path='/surveys/:survey_link' component={SurveyForm}/>
         </Switch>
       </div>
     );

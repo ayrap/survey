@@ -40,9 +40,7 @@ class SurveyList extends Component {
                 <th>Shareable Link</th>
               </tr>
             </thead>
-            <tbody>
-              {surveys ? this.renderSurveys(surveys) : <tr><td>No surveys yet. Please add.</td></tr>}
-            </tbody>
+            {surveys ? this.renderSurveys(surveys) : <tr><td>No surveys yet. Please add.</td></tr>}
           </table>
         </div>
       </div>

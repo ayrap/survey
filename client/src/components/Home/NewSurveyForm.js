@@ -94,7 +94,7 @@ class NewSurveyForm extends Component {
         'AccessToken': localStorage.getItem('session')
       }
     })
-    .then(({ data }) => {
+    .then(() => {
       this.props.history.push('/');
     });
   }
@@ -122,7 +122,7 @@ class NewSurveyForm extends Component {
                   {this.renderQuestions()}
                 </ol>
               </div>
-              <a className="btn btn-primary btn-question" onClick={this.handleClick}>Add Another Question</a>
+              <a className="btn btn-outline-primary btn-question" onClick={this.handleClick}>Add Another Question</a>
               <button type="submit" className="btn btn-primary">
                 Submit
               </button>
