@@ -9,8 +9,12 @@ This application is a simple web based survey tool built using Ruby on Rails (AP
 bundle install
 cd client && npm install
 
-* Deployment ()
+* Deployment
 Development: `rake start` 
+run rake db:seed for sample admin user
+
+username: admin@foo.com
+password: changeme
 
 * Screenshots
 ### Login Screen
@@ -24,6 +28,7 @@ Development: `rake start`
 
 ### Answer Survey
 ![alt text](https://snag.gy/kjSbGp.jpg "Answer Survey")
+
 
 
 
