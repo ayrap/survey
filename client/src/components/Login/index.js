@@ -18,9 +18,6 @@ class Login extends Component {
            .then(({ data }) => {
              this.props.loginUser(data);
              this.props.history.push('/');
-           })
-           .catch(error => {
-              console.log(error);
            });
     }
   }

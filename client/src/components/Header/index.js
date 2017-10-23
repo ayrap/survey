@@ -11,7 +11,6 @@ class Header extends Component {
 
   render() {
     let { authenticated } = this.state;
-
     return (
       <nav className="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
         <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

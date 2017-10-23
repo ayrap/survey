@@ -9,6 +9,7 @@ import Login from './components/Login';
 import NewSurveyForm from './components/Home/NewSurveyForm';
 import SurveyForm from './components/Home/SurveyForm';
 import Signup from './components/Signup';
+import Logout from './components/Logout';
 
 class App extends Component {
 
@@ -54,6 +55,7 @@ class App extends Component {
           <Route path='/login' render={() => (
             <Login loginUser={this.loginUser} />
           )}/>
+          <Route path='/logout' component={Logout}/>
           <Route path='/register' component={Signup}/>
           <Route path='/surveys/:survey_link' component={SurveyForm}/>
         </Switch>
