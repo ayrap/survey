@@ -6,6 +6,7 @@ class WebSurveySerializer < ActiveModel::Serializer
   attribute :responses do
     object.responses&.map do |response|
       {
+        id: response.id,
         respondent: response&.respondent&.name,
         answers: answers(response)
       }
