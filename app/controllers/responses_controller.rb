@@ -1,5 +1,5 @@
 class ResponsesController < ApiController
-  before_action :get_web_survey, only: [:create]
+  before_action :get_web_survey, only: [:new, :create]
 
   def create
     @response = @web_survey.responses.build obj_params

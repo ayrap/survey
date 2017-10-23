@@ -4,4 +4,8 @@ class Response < ApplicationRecord
   has_many :answers, dependent: :destroy
 
   validates :answers, presence: true
+
+  accepts_nested_attributes_for :answers
+  accepts_nested_attributes_for :respondent
+  
 end

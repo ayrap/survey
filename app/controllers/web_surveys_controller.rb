@@ -1,7 +1,17 @@
 class WebSurveysController < ApiController 
+  before_action :get_web_survey, only: :show
+
   def index
     @web_surveys = WebSurvey.all
     render json: @web_surveys
+  end
+
+  def show
+    if @web_survey.present?
+      render json: @web_survey
+    else
+      render json: {error: "Survey not found."}  
+    end
   end
 
   def create
@@ -16,7 +26,11 @@ class WebSurveysController < ApiController
 
   private
 
+  def get_web_survey
+    @web_survey = WebSurvey.friendly.find(params[:id])
+  end
+
   def obj_params
-    params.fetch(:web_survey).permit(:title, questions_attributes: [:id, :web_survey_id, :title, :is_default])
+    params.fetch(:web_survey).permit(:title, questions_attributes: [:id, :web_survey_id, :title, :is_custom])
   end
 end
