@@ -22,5 +22,6 @@ body {
 
 .questions .btn-question {
   margin-right: 10px;
-  color: #fff;
+  cursor: pointer;
+  cursor: hand;
 }

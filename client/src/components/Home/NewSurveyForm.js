@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import axios from 'axios';
 import Header from '../Header';
-
 import QuestionText from './QuestionText';
 
 const MAX_CUSTOM_QUESTIONS = 2;
@@ -126,7 +125,10 @@ class NewSurveyForm extends Component {
                     {this.renderQuestions()}
                   </ol>
                 </div>
-                <a className="btn btn-outline-primary btn-question" onClick={this.handleClick}>Add Another Question</a>
+                {this.state.questions.length < MAX_CUSTOM_QUESTIONS ?
+                  <a className="btn btn-outline-primary btn-question" onClick={this.handleClick}>Add Another Question</a>
+                :''
+                }
                 <button type="submit" className="btn btn-primary">
                   Submit
                 </button>

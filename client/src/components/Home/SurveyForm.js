@@ -11,11 +11,13 @@ class SurveyForm extends Component {
     this.updateAnswer = this.updateAnswer.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.parseAnswers = this.parseAnswers.bind(this);
+    this.validateAnswers = this.validateAnswers.bind(this);
     this.state = {
       survey: null,
       name: null,
       answers: [],
-      isSubmitted: false
+      isSubmitted: false,
+      withError: false
     };
   }
 
@@ -59,11 +61,25 @@ class SurveyForm extends Component {
     });
   }
 
+  validateAnswers() {
+    let emptyAnswer = this.state.answers.filter((answer) => {
+      return answer.answer == '';
+    });
+
+    if (emptyAnswer.length > 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
 
     let questionCount = this.state.survey.questions.length;
-    if (questionCount > this.state.answers && this.state.answers) {
+
+    if ((questionCount > this.state.answers.length) || !this.validateAnswers()) {
+      this.setState({withError: true});
       return false;
     } else {
       axios.post('/api/responses', { 
@@ -79,7 +95,10 @@ class SurveyForm extends Component {
         }
       })
       .then(({ data }) => {
-        this.setState({isSubmitted: true});
+        this.setState({
+          isSubmitted: true,
+          withError: false
+        });
       });
     }
   }
@@ -98,16 +117,24 @@ class SurveyForm extends Component {
     this.setState({answers});
   }
 
+  renderError() {
+    return (
+      <div className='col-md-12'>
+        <div className="alert alert-danger" role="alert">
+          <strong>Oh snap!</strong> <a className="alert-link">Please complete the survey!</a>
+        </div>
+      </div>
+    );
+  }
   render() {
-    let { survey } = this.state;
-    let { isSubmitted } = this.state;
-
+    let { survey, isSubmitted, withError } = this.state;
     return (
       <div className="container survey-form">
       <div className="row">
+        { withError && this.renderError()}
         { isSubmitted ?
           <div className="jumbotron">
-            <h2 class="display-4">Thank you for completing the survey.</h2>
+            <h2 className="display-4">Thank you for completing the survey.</h2>
           </div>
         :
           <div className="col-md-5">
